@@ -1,0 +1,45 @@
+.nav{
+    grid-area: n;
+    background-color: rgb(39, 185, 243);
+    padding: 20px;
+    margin-top: 10px;
+    
+  }
+  .item
+  {
+      color: black;
+      text-align: center;
+      padding: 10px 0px 10px;
+      font-size: 20px;
+  }
+  .item a
+  {
+      color: white;
+      text-decoration: none;
+  }
+
+  .item a.activeLink
+  {
+      color: gold;
+  }
+
+  .ava
+  {
+   height: 30px; 
+  }
+  .sidebar
+  {
+      position: relative;
+      text-align: center;
+      padding-top: 50px;
+      
+  }
+  .sidebarElement
+  {
+      float: left;
+      padding: 10gpx;
+  }
+
+  .sidebar p{
+      margin: 0px;
+  }

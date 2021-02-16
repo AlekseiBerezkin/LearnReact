@@ -1,0 +1,43 @@
+.dialogs
+{
+display: grid;
+grid-template-columns: 2fr 10fr;
+background-color: rgb(255, 255, 255);
+padding: 10px;
+}
+
+.dialogItems
+{
+padding: 10px;
+color: black;
+background-color: yellow;
+}
+
+.dialogs .dialog
+{
+
+}
+
+.messages .message
+{
+
+}
+
+.messages
+{
+    padding: 10px;
+    margin-left: 10px;
+    color: black;
+    background-color: rgb(136, 255, 0);
+}
+
+.dialogItems .active
+{
+color: gold;
+}
+
+.ava
+{
+    height: 50px;
+    border-radius: 250px;
+}
