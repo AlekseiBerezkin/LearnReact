@@ -7,6 +7,7 @@ import store from './Redux/redux-store'
 
 let rerendeEntireTree=(state)=>
 {
+  
   ReactDOM.render(
     <React.StrictMode>
 
@@ -19,7 +20,8 @@ let rerendeEntireTree=(state)=>
 rerendeEntireTree(store.getState());
 store.subscribe(()=>{
   let state=store.getState();
-  rerendeEntireTree();});
+  rerendeEntireTree();
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

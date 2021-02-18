@@ -2,7 +2,7 @@ import sMyPost from './Post.module.css'
 
 const Post=(props)=>
 {
-  console.log(props.message);
+  
     return(
     <div>
       <div className={sMyPost.item}>

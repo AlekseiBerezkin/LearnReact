@@ -13,7 +13,9 @@ let newPostElement=React.createRef();
 
 let addPost=()=>
 {
+  //debugger;
   props.dispatch(addPostActionCreator()); 
+  
   
 }
 

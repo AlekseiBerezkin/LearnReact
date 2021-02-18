@@ -33,21 +33,7 @@ const Nav = (props) => {//debugger;
       <div>
 
       </div>
-      <div className={classes.sidebar}>
-        <div className={classes.sidebarElement}>
-          <img src={props.sidebar[0].image} alt="" className={classes.ava} />
-         <p>{props.sidebar[0].name}</p> 
-        </div>
-        <div className={classes.sidebarElement}>
-          <img src={props.sidebar[1].image} alt="" className={classes.ava} />
-         <p>{props.sidebar[1].name}</p> 
-        </div>
-        <div className={classes.sidebarElement}>
-          <img src={props.sidebar[2].image} alt="" className={classes.ava} />
-         <p>{props.sidebar[2].name}</p> 
-        </div>
 
-      </div>
 
     </div>
   );

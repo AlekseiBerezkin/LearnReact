@@ -28,6 +28,8 @@ let initState={
             }
             state.postsData.push(newPost);
             state.newPostText='';
+            
+            //debugger;
             break;
         case UPDATE_NEW_POST_TEXT:
         {state.newPostText=action.newText;}
@@ -37,7 +39,7 @@ let initState={
     return state;
 }
 
-export const addPostActionCreator=()=>{return{type:ADD_POST}}
+export const addPostActionCreator=()=>{ return{type:ADD_POST}}
 
 export const updateNewPostTextActionCreator=(text)=>
 {
