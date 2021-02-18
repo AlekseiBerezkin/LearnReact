@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
@@ -23,8 +23,8 @@ const App = (props) => {
         </div>
 
         <div className='App-wrapper-content'>
-          <Route path='/profile' render={()=><Profile posts={props.state.profilePage.postsData} />} />
-          <Route path='/dialogs' render={()=><Dialogs message={props.state.dialogPage.messageData} dialogs={props.state.dialogPage.dialogsData}/>} />
+          <Route path='/profile' render={()=><Profile profilePage={props.state.profilePage} dispatch={props.dispatch} /> } />
+          <Route path='/dialogs' render={()=><Dialogs store={props.store}  />} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />
