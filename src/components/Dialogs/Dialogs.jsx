@@ -16,7 +16,7 @@ let state=props.dialogsPage;
 
     let onSendMessageClick=()=>
     {   
-        //debugger;
+        //debugger;акуц а
         props.sendMessage(); 
     }
     
