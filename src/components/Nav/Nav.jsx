@@ -22,6 +22,10 @@ const Nav = (props) => {//debugger;
           </div>
 
           <div>
+            <NavLink to="/users" activeClassName={classes.activeLink}>Users</NavLink>
+          </div>
+
+          <div>
             <NavLink to="/music" activeClassName={classes.activeLink}>Music</NavLink>
           </div>
 
