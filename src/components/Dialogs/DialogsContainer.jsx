@@ -1,6 +1,5 @@
 import Dialogs from './Dialogs'
-import DialogItems from './DialogItem/DialogItems'
-import Message from './Messages/Messages'
+
 import {updateNewMessageBodyCreator,sendMessageCreator} from '../../Redux/dialogs-reducer'
 
 import { connect } from 'react-redux'

@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router-dom';
+
 import sDialogs from './Dialogs.module.css';
 import DialogItems from './DialogItem/DialogItems'
 import Message from './Messages/Messages'
-import {updateNewMessageBodyCreator,sendMessageCreator} from '../../Redux/dialogs-reducer'
+
 
 
 
