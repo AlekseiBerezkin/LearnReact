@@ -1,46 +1,39 @@
 import axios from 'axios';
 import React from 'react'
-
+import styles from './Users.module.css'
 class Users extends React.Component{
 
   /*constructor(props)
   {
     super(props);
-    
-
-  
   }*/
 
   componentDidMount()
   {
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then((response)=>{ 
-    this.props.setUsers(response.data.items);})
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currrentPage}&count=${this.props.pageSize}`).then((response)=>{ 
+    this.props.setUsers(response.data.items);
+    this.props.setTotalCount(response.data.totalCount);})
   }
-    getUsers=()=>
+    onPageChenged=(pageNumber)=>
   {
-    /* if(this.props.users.length===0)
-    { 
-      //  debugger;
-      //console.log('ds'); 
-      axios.get("https://social-network.samuraijs.com/api/1.0/users").then((response)=>{ 
-        this.props.setUsers(response.data.items);
-      })
-     props.setUsers(
-        
-        [ 
-        {id:1,photoUrl:'https://sova.ponominalu.ru/wp-content/uploads/2019/08/ava-max.jpg',followed:true, fullName:"Вася",status:"All zbs", location:{city:"Минск", country:"Беларусь"}},
-        {id:2,photoUrl:'https://cdn-st1.rtr-vesti.ru/vh/pictures/xw/234/946/6.jpg',followed:false,fullName:"Аня",status:"Учусь", location:{city:"Ростов", country:"Россия"}},
-        {id:3,photoUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Cat_eyes_2007-1.jpg/250px-Cat_eyes_2007-1.jpg',followed:true,fullName:"Макс",status:"Бухаю", location:{city:"Лосанджелес", country:"США"}}
-        ]
-      )
-    
-    }*/
+    this.props.setCurrentPage(pageNumber);
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then((response)=>{ 
+      this.props.setUsers(response.data.items);})
   }
    
 
 
-render() {return(<div>
-  <button onClick={this.getUsers}>Get users</button>
+render() {
+  let pagesCount=Math.ceil(this.props.totalUsersCount/this.props.pageSize);
+  let pages=[];
+
+  for (let index = 1; index <= pagesCount; index++) {
+    pages.push(index);
+  }
+  return(<div>
+    { pages.map((p)=>{ return <span onClick={(e)=>{this.onPageChenged(p);}}className={styles.Npage} className={this.props.currrentPage===p && styles.selectedPage}>{p}</span>})}
+
+
   {
     this.props.users.map(u=><div key={u.id}>
        <span>

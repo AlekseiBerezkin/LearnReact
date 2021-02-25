@@ -1,12 +1,12 @@
-
-.item
+.selectedPage
 {
-  color: red;
+  font-weight: 600;
 }
-
-
-.posts
+.Npage:hover
 {
-  padding-left:30px;
+  cursor: pointer;
 }
-
+.Npage
+{
+  padding-left: 5px;
+}
