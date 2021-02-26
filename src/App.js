@@ -2,17 +2,17 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
-import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Music from './components/Music/Music'
 import News from './components/News/News'
 import Settings from './components/Settings/Settings'
 import UsersContainer from './components/Users/usersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 
-const App = (props) => {
+const App = () => {
   //debugger;
   return (
     <BrowserRouter>
@@ -25,7 +25,7 @@ const App = (props) => {
         </div>
 
         <div className='App-wrapper-content'>
-          <Route path='/profile' render={()=><Profile/> } />
+          <Route path='/profile/:userID?' render={()=><ProfileContainer/> } />
           <Route path='/dialogs' render={()=><DialogsContainer/>} />
           <Route path='/users' render={()=><UsersContainer/>} />
           <Route path='/news' component={News} />
