@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { setUserProfile } from '../../Redux/profile-reducer';
+import { usersApi } from '../api/api';
 import Profile from './Profile';
 
 
@@ -15,11 +16,9 @@ componentDidMount(){
           {
             userId=2;
           }
-          axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then((response)=>{ 
-          this.props.setUserProfile(response.data);
-          
-          //debugger
-          })
+          usersApi.getUserProfile(userId).then((data)=>{
+            //debugger
+            this.props.setUserProfile(data);})
 }
 
 render(){
