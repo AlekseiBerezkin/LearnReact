@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { follow, setUsers, unfollow, setCurrentPage, setTotalCount, toogleIsFething,toogleIsFollowingProgress } from '../../Redux/users-reducer';
+import { follow, unfollow, setCurrentPage, toogleIsFollowingProgress,getUsers } from '../../Redux/users-reducer';
 import Users from './Users'
 import Preloader from '../common/preloader/Preloader';
-import { usersApi } from '../api/api';
+
 
 
 class UsersContainer extends React.Component {
@@ -11,25 +11,12 @@ class UsersContainer extends React.Component {
 
 
   componentDidMount() {
-    this.props.toogleIsFething(true)
-
-    usersApi.getUsers(this.props.currrentPage, this.props.pageSize).then((data) => {
-      this.props.setUsers(data.items);
-      this.props.setTotalCount(data.totalCount);
-      this.props.toogleIsFething(false)
-    })
-
-
-
-
+    this.props.getUsers(this.props.currrentPage,this.props.pageSize);
   }
 
   onPageChenged = (pageNumber) => {
-    this.props.toogleIsFething(true)
-    this.props.setCurrentPage(pageNumber);
-    usersApi.getUsers(pageNumber, this.props.pageSize).then((data) => {
-    this.props.setUsers(data.items); this.props.toogleIsFething(false)
-    })
+    //debugger
+    this.props.getUsers(pageNumber,this.props.pageSize);
   }
 
 
@@ -40,7 +27,8 @@ class UsersContainer extends React.Component {
     //debugger
     return <> {this.props.isFething ? Preloader() : null}
 
-      <Users totalUsersCount={this.props.totalUsersCount}
+      <Users 
+      totalUsersCount={this.props.totalUsersCount}
         pageSize={this.props.pageSize}
         currrentPage={this.props.currrentPage}
         onPageChenged={this.onPageChenged}
@@ -70,4 +58,4 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalCount, toogleIsFething,toogleIsFollowingProgress })(UsersContainer); 
+export default connect(mapStateToProps, { follow, unfollow, setCurrentPage, toogleIsFollowingProgress, getUsers })(UsersContainer); 

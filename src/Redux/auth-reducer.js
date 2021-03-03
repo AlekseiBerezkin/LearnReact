@@ -1,5 +1,7 @@
+import { usersApi } from "../components/api/api";
+
 const SET_USER_DATA='SET_USER_DATA';
-const UNFOLLOW='UNFOLLOW';
+
 
 
 
@@ -34,4 +36,24 @@ switch(action.type)
 }
 
 export const setAuthUserData=(userId,email,login)=>( {type:SET_USER_DATA,data:{userId,email,login}})
+
+export const authUser =()=>{
+    //debugger;
+    return (dispatch)=>{
+        
+        usersApi.getAuth().then((data)=>{ 
+            
+            //debugger
+            if(data.resultCode===0)
+                {   
+                    let {id,email,login}=data.data;
+                    dispatch(setAuthUserData(id,email,login))
+                    //debugger
+                }
+            }
+            )
+        }
+        }
+
+
 export default authReducer;

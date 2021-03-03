@@ -26,7 +26,8 @@ export const usersApi = {
   getUserProfile(userId){
       return instance.get(`profile/${userId}`).then((response)=>{return response.data})},
   getAuth(){
-    return instance.get(`auth/me`,{}).then((response)=>{ return response})
+    
+    return instance.get(`auth/me`,{}).then((response)=>{ return response.data})
   }
   
 
